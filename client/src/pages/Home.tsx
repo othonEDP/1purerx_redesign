@@ -183,14 +183,14 @@ export default function Home() {
       <Header language={language} onLanguageChange={setLanguage} />
 
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 bg-gradient-to-br from-primary/5 to-accent/5">
+      <section id="home" className="pt-32 pb-20 pharma-gradient-bg bg-opacity-5" style={{ background: 'linear-gradient(135deg, rgba(0, 153, 216, 0.05) 0%, rgba(107, 45, 142, 0.05) 100%)' }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="pharma-line mb-6" />
-              <h1 className="text-primary mb-6">{t.heroTitle}</h1>
+              <h1 className="mb-6 pharma-gradient-text text-4xl md:text-5xl font-bold">{t.heroTitle}</h1>
               <p className="text-lg text-foreground/80 mb-8 leading-relaxed">{t.heroSubtitle}</p>
-              <button className="pharma-button-accent flex items-center gap-2 group">
+              <button className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2 group">
                 {t.heroButton}
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
@@ -219,10 +219,10 @@ export default function Home() {
             </div>
             <div>
               <div className="pharma-line mb-6" />
-              <h2 className="text-primary mb-6">{t.aboutTitle}</h2>
+              <h2 className="mb-6 pharma-gradient-text text-3xl md:text-4xl font-bold">{t.aboutTitle}</h2>
               <h3 className="text-2xl text-foreground mb-6">{t.aboutSubtitle}</h3>
               <p className="text-foreground/80 mb-6 leading-relaxed">{t.aboutContent}</p>
-              <div className="bg-primary/5 border-l-4 border-accent p-6 rounded">
+              <div className="pharma-card-accent border-l-4 border-accent">
                 <p className="text-foreground font-semibold">{t.aboutHighlight}</p>
               </div>
             </div>
@@ -235,40 +235,40 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <div className="pharma-line mx-auto mb-6" />
-            <h2 className="text-primary mb-4">{t.solutionsTitle}</h2>
+            <h2 className="mb-4 pharma-gradient-text text-3xl md:text-4xl font-bold">{t.solutionsTitle}</h2>
             <p className="text-lg text-foreground/80">{t.solutionsSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="pharma-card group">
-              <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-colors">
                 <Beaker className="text-accent" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{t.scientificArticles}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text mb-3">{t.scientificArticles}</h3>
               <p className="text-foreground/80">{t.scientificDesc}</p>
             </div>
 
             <div className="pharma-card group">
-              <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-colors">
                 <Users className="text-accent" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{t.supportReps}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text mb-3">{t.supportReps}</h3>
               <p className="text-foreground/80">{t.supportDesc}</p>
             </div>
 
             <div className="pharma-card group">
-              <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-colors">
                 <Shield className="text-accent" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{t.regulatory}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text mb-3">{t.regulatory}</h3>
               <p className="text-foreground/80">{t.regulatoryDesc}</p>
             </div>
 
             <div className="pharma-card group">
-              <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-colors">
                 <BookOpen className="text-accent" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{t.referenceManual}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text mb-3">{t.referenceManual}</h3>
               <p className="text-foreground/80">{t.referenceDesc}</p>
             </div>
           </div>
@@ -280,23 +280,23 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <div className="pharma-line mx-auto mb-6" />
-            <h2 className="text-primary mb-4">{t.toolsTitle}</h2>
+            <h2 className="mb-4 pharma-gradient-text text-3xl md:text-4xl font-bold">{t.toolsTitle}</h2>
             <p className="text-lg text-foreground/80">{t.toolsSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div className="pharma-card text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Calculator className="text-primary" size={32} />
+            <div className="pharma-card-accent text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Calculator className="text-accent" size={32} />
               </div>
-              <h3 className="text-xl font-bold text-primary">{t.dosageCalc}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text">{t.dosageCalc}</h3>
             </div>
 
-            <div className="pharma-card text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <FileText className="text-primary" size={32} />
+            <div className="pharma-card-accent text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <FileText className="text-accent" size={32} />
               </div>
-              <h3 className="text-xl font-bold text-primary">{t.prescriptionGen}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text">{t.prescriptionGen}</h3>
             </div>
           </div>
         </div>
@@ -307,7 +307,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <div className="pharma-line mx-auto mb-6" />
-            <h2 className="text-primary mb-4">{t.processTitle}</h2>
+            <h2 className="mb-4 pharma-gradient-text text-3xl md:text-4xl font-bold">{t.processTitle}</h2>
             <p className="text-lg text-foreground/80">{t.processSubtitle}</p>
           </div>
 
@@ -318,11 +318,11 @@ export default function Home() {
               { num: '3', title: t.step3Title, desc: t.step3Desc },
             ].map((step, idx) => (
               <div key={idx} className="relative">
-                <div className="pharma-card">
-                  <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
-                    {step.num}
-                  </div>
-                  <h3 className="text-lg font-bold text-primary mb-3">{step.title}</h3>
+              <div className="pharma-card">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
+                  {step.num}
+                </div>
+                <h3 className="text-lg font-bold pharma-gradient-text mb-3">{step.title}</h3>
                   <p className="text-foreground/80">{step.desc}</p>
                 </div>
                 {idx < 2 && (
@@ -341,16 +341,16 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <div className="pharma-line mx-auto mb-6" />
-            <h2 className="text-primary mb-4">{t.partnersTitle}</h2>
+            <h2 className="mb-4 pharma-gradient-text text-3xl md:text-4xl font-bold">{t.partnersTitle}</h2>
             <p className="text-lg text-foreground/80">{t.partnersSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="pharma-card">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Globe className="text-primary" size={24} />
+              <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4">
+                <Globe className="text-accent" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{t.endopure}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text mb-3">{t.endopure}</h3>
               <p className="text-foreground/80 mb-4">{t.endopureDesc}</p>
               <a
                 href="https://www.endopureusa.com/"
@@ -363,10 +363,10 @@ export default function Home() {
             </div>
 
             <div className="pharma-card">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Award className="text-primary" size={24} />
+              <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4">
+                <Award className="text-accent" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{t.academy}</h3>
+              <h3 className="text-xl font-bold pharma-gradient-text mb-3">{t.academy}</h3>
               <p className="text-foreground/80">{t.academyDesc}</p>
             </div>
           </div>
@@ -374,10 +374,10 @@ export default function Home() {
       </section>
 
       {/* Compliance Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 pharma-gradient-bg text-white">
         <div className="container">
           <div className="text-center mb-12">
-            <div className="h-1 w-12 bg-accent rounded-full mx-auto mb-6" />
+            <div className="h-1 w-12 bg-white rounded-full mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.complianceTitle}</h2>
             <p className="text-lg opacity-90">{t.complianceSubtitle}</p>
           </div>
@@ -390,7 +390,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <div className="pharma-line mx-auto mb-6" />
-            <h2 className="text-primary mb-4">{t.faqTitle}</h2>
+            <h2 className="mb-4 pharma-gradient-text text-3xl md:text-4xl font-bold">{t.faqTitle}</h2>
             <p className="text-lg text-foreground/80">{t.faqSubtitle}</p>
           </div>
 
@@ -398,14 +398,14 @@ export default function Home() {
             {faqItems.map((item, idx) => (
               <div key={idx} className="pharma-card cursor-pointer" onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}>
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-primary">{item.q}</h3>
+                  <h3 className="font-semibold pharma-gradient-text">{item.q}</h3>
                   <ChevronDown
                     size={20}
                     className={`text-accent transition-transform ${expandedFaq === idx ? 'rotate-180' : ''}`}
                   />
                 </div>
                 {expandedFaq === idx && (
-                  <p className="text-foreground/80 mt-4 pt-4 border-t border-border">{item.a}</p>
+                  <p className="text-foreground/80 mt-4 pt-4 border-t border-accent/20">{item.a}</p>
                 )}
               </div>
             ))}
@@ -418,7 +418,7 @@ export default function Home() {
         <div className="container max-w-2xl">
           <div className="text-center mb-8">
             <div className="pharma-line mx-auto mb-6" />
-            <h2 className="text-primary mb-4">{t.newsletterTitle}</h2>
+            <h2 className="mb-4 pharma-gradient-text text-3xl md:text-4xl font-bold">{t.newsletterTitle}</h2>
             <p className="text-lg text-foreground/80">{t.newsletterSubtitle}</p>
           </div>
 
@@ -426,9 +426,9 @@ export default function Home() {
             <input
               type="email"
               placeholder={t.newsletterPlaceholder}
-              className="flex-1 px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="flex-1 px-4 py-3 border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
             />
-            <button type="submit" className="pharma-button-accent">
+            <button type="submit" className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg">
               {t.newsletterButton}
             </button>
           </form>

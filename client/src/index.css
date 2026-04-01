@@ -43,15 +43,15 @@
 }
 
 :root {
-  --primary: #003D7A;
+  --primary: #0099D8;
   --primary-foreground: #F5F7FA;
-  --sidebar-primary: #003D7A;
+  --sidebar-primary: #0099D8;
   --sidebar-primary-foreground: #F5F7FA;
-  --chart-1: #D97757;
-  --chart-2: #003D7A;
-  --chart-3: #1E7E34;
-  --chart-4: #003D7A;
-  --chart-5: #1E7E34;
+  --chart-1: #6B2D8E;
+  --chart-2: #0099D8;
+  --chart-3: #6B2D8E;
+  --chart-4: #0099D8;
+  --chart-5: #6B2D8E;
   --radius: 0.65rem;
   --background: #FAFBFC;
   --foreground: #1A1F2E;
@@ -59,11 +59,11 @@
   --card-foreground: #1A1F2E;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: #1E7E34;
+  --secondary: #6B2D8E;
   --secondary-foreground: #FFFFFF;
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: #D97757;
+  --accent: #6B2D8E;
   --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
@@ -154,11 +154,27 @@
   }
   
   .pharma-line {
-    @apply h-1 w-12 bg-accent rounded-full;
+    background: linear-gradient(90deg, #0099D8 0%, #6B2D8E 100%);
+    @apply h-1 w-12 rounded-full;
+  }
+  
+  .pharma-gradient-bg {
+    background: linear-gradient(135deg, #0099D8 0%, #6B2D8E 100%);
+  }
+  
+  .pharma-gradient-text {
+    background: linear-gradient(90deg, #0099D8 0%, #6B2D8E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .pharma-card {
-    @apply bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300;
+    @apply bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-transparent hover:border-primary/20;
+  }
+  
+  .pharma-card-accent {
+    @apply bg-gradient-to-br from-accent/10 to-primary/10 rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-accent/20;
   }
   
   .pharma-button-primary {
