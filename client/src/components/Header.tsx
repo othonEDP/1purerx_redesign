@@ -36,12 +36,13 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 border-b border-border">
       <div className="container flex items-center justify-between py-4">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">1P</span>
-          </div>
-          <span className="font-bold text-lg text-primary hidden sm:inline">1PureRx</span>
-        </div>
+        <a href="#home" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029271132/Y7eGYsDjgd9BdJXBRUhQTv/Vertical_LOGO1PURERX_EP2026_Cor_5e7db5ee.png"
+            alt="1PureRx Logo"
+            className="h-12 w-auto"
+          />
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">

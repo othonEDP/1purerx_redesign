@@ -43,13 +43,12 @@ export default function Footer({ language }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">1P</span>
-              </div>
-              <span className="font-bold text-lg">1PureRx</span>
-            </div>
-            <p className="text-sm opacity-90 mb-4">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029271132/Y7eGYsDjgd9BdJXBRUhQTv/LogoBrancocomCannabidiol_cc78e597.png"
+              alt="1PureRx Logo"
+              className="h-16 w-auto mb-4"
+            />
+            <p className="text-sm opacity-90 mb-6">
               {language === 'en'
                 ? 'Leading pharmaceutical distributor of high-purity cannabinoid products'
                 : 'Distribuidora farmacêutica líder em produtos canabinoides de alta pureza'}
