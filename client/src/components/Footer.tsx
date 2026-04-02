@@ -136,7 +136,7 @@ export default function Footer({ language }: FooterProps) {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-accent rounded-lg hover:bg-opacity-80 transition-all"
+                  className="p-2 bg-white rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-110"
                 >
                   <Facebook size={18} className="text-primary" />
                 </a>
@@ -144,7 +144,7 @@ export default function Footer({ language }: FooterProps) {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-accent rounded-lg hover:bg-opacity-80 transition-all"
+                  className="p-2 bg-white rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-110"
                 >
                   <Linkedin size={18} className="text-primary" />
                 </a>
@@ -152,7 +152,7 @@ export default function Footer({ language }: FooterProps) {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-accent rounded-lg hover:bg-opacity-80 transition-all"
+                  className="p-2 bg-white rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-110"
                 >
                   <Instagram size={18} className="text-primary" />
                 </a>
