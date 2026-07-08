@@ -1,11 +1,25 @@
-import { useState } from 'react';
-import { ChevronDown, Beaker, Users, Shield, BookOpen, Calculator, FileText, Globe, Award, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronDown, Beaker, Users, Shield, BookOpen, Calculator, FileText, Globe, Award, ArrowRight, ClipboardCheck, ClipboardList, FolderHeart, Package } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function Home() {
-  const [language, setLanguage] = useState<'en' | 'pt'>('en');
+  const [language, setLanguage] = useState<'en' | 'pt'>(() => {
+    if (typeof navigator !== 'undefined') {
+      const langs = navigator.languages ?? [navigator.language];
+      if (langs.some((l) => l?.toLowerCase().startsWith('pt'))) {
+        return 'pt';
+      }
+    }
+    return 'en';
+  });
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  // Chatwoot: exibe o widget somente na versão PT
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle('chat-enabled', language === 'pt');
+  }, [language]);
 
   const translations = {
     en: {
@@ -37,7 +51,11 @@ export default function Home() {
       toolsSubtitle: 'Simplify your clinical practice',
       dosageCalc: 'Dosage Calculator',
       prescriptionGen: 'Prescription Generator',
-      
+      consentForm: 'Consent Form Generator',
+      reportGen: 'Report Generator',
+      patientRecords: 'Patient Records & Management',
+      productCatalog: 'Product Catalog',
+
       // Process
       processTitle: 'How to Purchase',
       processSubtitle: 'Three simple steps to access our products',
@@ -116,7 +134,11 @@ export default function Home() {
       toolsSubtitle: 'Simplifique sua prática clínica',
       dosageCalc: 'Calculadora de Doses',
       prescriptionGen: 'Gerador de Receita',
-      
+      consentForm: 'Termo de Consentimento',
+      reportGen: 'Gerador de Laudo',
+      patientRecords: 'Controle e Prontuário de Pacientes',
+      productCatalog: 'Catálogo de Produtos',
+
       // Process
       processTitle: 'Como Comprar',
       processSubtitle: 'Três passos simples para acessar nossos produtos',
@@ -284,20 +306,25 @@ export default function Home() {
             <p className="text-lg text-foreground/80">{t.toolsSubtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div className="pharma-card-accent text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Calculator className="text-accent" size={32} />
-              </div>
-              <h3 className="text-xl font-bold pharma-gradient-text">{t.dosageCalc}</h3>
-            </div>
-
-            <div className="pharma-card-accent text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <FileText className="text-accent" size={32} />
-              </div>
-              <h3 className="text-xl font-bold pharma-gradient-text">{t.prescriptionGen}</h3>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              { icon: Calculator, label: t.dosageCalc },
+              { icon: FileText, label: t.prescriptionGen },
+              { icon: ClipboardCheck, label: t.consentForm },
+              { icon: ClipboardList, label: t.reportGen },
+              { icon: FolderHeart, label: t.patientRecords },
+              { icon: Package, label: t.productCatalog },
+            ].map((tool, idx) => {
+              const Icon = tool.icon;
+              return (
+                <div key={idx} className="pharma-card-accent text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Icon className="text-accent" size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold pharma-gradient-text">{tool.label}</h3>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -326,8 +353,8 @@ export default function Home() {
                   <p className="text-foreground/80">{step.desc}</p>
                 </div>
                 {idx < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="text-accent" size={24} />
+                  <div className="hidden md:flex items-center justify-center absolute top-1/2 -right-4 -translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent shadow-md">
+                    <ArrowRight className="text-white" size={18} />
                   </div>
                 )}
               </div>
@@ -367,7 +394,15 @@ export default function Home() {
                 <Award className="text-accent" size={24} />
               </div>
               <h3 className="text-xl font-bold pharma-gradient-text mb-3">{t.academy}</h3>
-              <p className="text-foreground/80">{t.academyDesc}</p>
+              <p className="text-foreground/80 mb-4">{t.academyDesc}</p>
+              <a
+                href="https://endopureacademy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent font-semibold hover:text-primary transition-colors flex items-center gap-2"
+              >
+                {language === 'pt' ? 'Visitar' : 'Visit'} <ArrowRight size={16} />
+              </a>
             </div>
           </div>
         </div>
@@ -398,14 +433,14 @@ export default function Home() {
             {faqItems.map((item, idx) => (
               <div key={idx} className="pharma-card cursor-pointer" onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}>
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold pharma-gradient-text">{item.q}</h3>
+                  <h3 className="font-semibold pharma-gradient-text text-base md:text-lg">{item.q}</h3>
                   <ChevronDown
                     size={20}
                     className={`text-accent transition-transform ${expandedFaq === idx ? 'rotate-180' : ''}`}
                   />
                 </div>
                 {expandedFaq === idx && (
-                  <p className="text-foreground/80 mt-4 pt-4 border-t border-accent/20">{item.a}</p>
+                  <p className="text-foreground/80 mt-4 pt-4 border-t border-accent/20 text-sm md:text-base">{item.a}</p>
                 )}
               </div>
             ))}

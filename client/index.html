@@ -10,15 +10,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Chatwoot widget styles -->
+    <style>
+      .woot-widget-bubble{width:48px!important;height:48px!important;min-width:0!important;padding:0!important;border-radius:100%!important;background:linear-gradient(135deg,#0099D8 0%,#6B2D8E 100%)!important;box-shadow:0 6px 18px rgba(107,45,142,0.35)!important;display:flex!important;align-items:center!important;justify-content:center!important;}
+      .woot-widget-bubble:hover{opacity:0.92!important;}
+      .woot-widget-bubble svg,.woot-widget-bubble img{margin:0!important;width:24px!important;height:24px!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;position:static!important;}
+      .woot-widget-bubble.woot-widget--expanded{width:auto!important;border-radius:24px!important;padding:0 14px!important;gap:8px!important;background:linear-gradient(135deg,#0099D8 0%,#6B2D8E 100%)!important;}
+      .woot-widget-holder{position:fixed!important;bottom:80px!important;right:20px!important;z-index:2147483000!important;}
+      .woot--hide{display:none!important;visibility:hidden!important;}
+
+      /* Widget só aparece quando o app habilita (idioma PT). Fica oculto por padrão. */
+      html:not(.chat-enabled) .woot-widget-bubble,
+      html:not(.chat-enabled) .woot-widget-holder,
+      html:not(.chat-enabled) .woot-widget-bubble.woot-widget--expanded{
+        display:none!important;
+        visibility:hidden!important;
+      }
+    </style>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+
+    <!-- Chatwoot live chat -->
+    <script>
+      (function (d, t) {
+        var BASE_URL = "https://sac.1purerx.com.br";
+        var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+          window.chatwootSDK.run({
+            websiteToken: "qDZvmLf6eC9EeiRgQ4Ki12PX",
+            baseUrl: BASE_URL,
+          });
+        };
+      })(document, "script");
+    </script>
   </body>
 
 </html>

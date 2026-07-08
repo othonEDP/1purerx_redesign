@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
+import logoUrl from '@/assets/logo-1purerx.png';
 
 interface HeaderProps {
   language: 'en' | 'pt';
@@ -18,6 +19,7 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
       partners: 'Partners',
       contact: 'Contact',
       endopure: 'EndoPure USA',
+      portal: 'Acessar Portal Médico',
     },
     pt: {
       home: 'Início',
@@ -27,6 +29,7 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
       partners: 'Parceiros',
       contact: 'Contato',
       endopure: 'EndoPure USA',
+      portal: 'Acessar Portal Médico',
     },
   };
 
@@ -38,9 +41,9 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029271132/Y7eGYsDjgd9BdJXBRUhQTv/Vertical_LOGO1PURERX_EP2026_Cor_5e7db5ee.png"
+            src={logoUrl}
             alt="1PureRx Logo"
-            className="h-12 w-auto"
+            className="h-12 md:h-14 w-auto"
           />
         </a>
 
@@ -68,6 +71,18 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
 
         {/* Right Section */}
         <div className="flex items-center gap-4">
+          {/* Portal Button (PT only) */}
+          {language === 'pt' && (
+            <a
+              href="https://portal.1purerx.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg bg-primary text-white font-medium hover:opacity-90 transition-opacity"
+            >
+              {t.portal}
+            </a>
+          )}
+
           {/* Language Selector */}
           <div className="flex items-center gap-2 border border-border rounded-lg p-1">
             <button
@@ -124,6 +139,16 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
             <a href="#contact" className="text-foreground hover:text-primary transition-colors">
               {t.contact}
             </a>
+            {language === 'pt' && (
+              <a
+                href="https://portal.1purerx.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-primary text-white font-medium hover:opacity-90 transition-opacity"
+              >
+                {t.portal}
+              </a>
+            )}
           </div>
         </nav>
       )}

@@ -1,4 +1,5 @@
 import { Facebook, Linkedin, Instagram, Mail, Phone } from 'lucide-react';
+import logoWhiteUrl from '@/assets/logo-1purerx-white.png';
 
 interface FooterProps {
   language: 'en' | 'pt';
@@ -44,9 +45,9 @@ export default function Footer({ language }: FooterProps) {
           {/* Company Info */}
           <div>
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029271132/Y7eGYsDjgd9BdJXBRUhQTv/LogoBrancocomCannabidiol_cc78e597.png"
+              src={logoWhiteUrl}
               alt="1PureRx Logo"
-              className="h-16 w-auto mb-4"
+              className="h-20 md:h-24 w-auto mb-4"
             />
             <p className="text-sm opacity-90 mb-6">
               {language === 'en'
